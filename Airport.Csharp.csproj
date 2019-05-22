@@ -54,6 +54,7 @@
     <Compile Include="Properties\Main\PlaneNotInHangarException.cs" />
     <Compile Include="Properties\Test\PlaneTest.cs" />
     <Compile Include="Properties\Main\PlaneAlreadyInFlightException.cs" />
+    <Compile Include="Properties\Main\PlaneAlreadyLandedException.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="README.md" />

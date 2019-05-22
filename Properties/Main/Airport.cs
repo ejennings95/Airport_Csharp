@@ -18,7 +18,13 @@ namespace Airport.Csharp
 
         public void LandPlane (Plane plane)
         {
-            hangar.Add(plane);
+            if (plane.GetStatus() == "Landed")
+            {
+                throw new PlaneAlreadyLandedException("Plane already laneded");
+            } else
+            {
+                hangar.Add(plane);
+            }
         }
 
         public void TakeOffPlane(Plane plane)

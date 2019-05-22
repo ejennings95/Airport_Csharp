@@ -21,6 +21,16 @@ namespace Airport.Csharp.Test
             Assert.AreEqual(1, Heathrow.GetHangar().Count);
         }
 
+        [Test, Description("Cannot land plane if it is already landed")]
+        [ExpectedException(typeof(PlaneAlreadyLandedException))]
+        public void UnableLandLandedPlane()
+        {
+            Mock<Plane> plane = new Mock<Plane>();
+            plane.Setup(x => x.GetStatus()).Returns("Landed");
+            Airport Heathrow = new Airport();
+            Heathrow.LandPlane(plane.Object);
+        }
+
         [Test, Description("Can take off plane if in airport hangar")]
         public void TakeOffPlane()
         {
