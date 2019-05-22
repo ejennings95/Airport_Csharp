@@ -41,7 +41,7 @@ namespace Airport.Csharp.Test
             Airport Gatwick = new Airport();
             Heathrow.LandPlane(plane);
             Assert.AreEqual(1, Heathrow.GetHangar().Count);
-            //Gatwick.TakeOffPlane(plane);
+            Gatwick.TakeOffPlane(plane);
         }
     }
 }
