@@ -20,5 +20,16 @@ namespace Airport.Csharp
         {
             hangar.Add(plane);
         }
+
+        public void TakeOffPlane(Plane plane)
+        {
+            if (!GetHangar().Contains(plane)) 
+            {
+                throw new PlaneNotInHangarException("This plane is not in this airport's hangar");
+            } else
+            {
+                hangar.Remove(plane);
+            }
+        }
     }
 }
