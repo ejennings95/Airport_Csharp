@@ -23,6 +23,10 @@ namespace Airport.Csharp
 
         public void TakeOffPlane(Plane plane)
         {
+            if (plane.GetStatus() == "Flying")
+            {
+                throw new PlaneAlreadyInFlightException("Plane is already in flight");
+            }
             if (!GetHangar().Contains(plane)) 
             {
                 throw new PlaneNotInHangarException("This plane is not in this airport's hangar");

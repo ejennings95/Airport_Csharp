@@ -9,7 +9,7 @@ namespace Airport.Csharp
         {
         }
 
-        public string GetStatus()
+        public virtual string GetStatus()
         {
             return status;
         }

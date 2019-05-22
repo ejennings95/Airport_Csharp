@@ -43,5 +43,15 @@ namespace Airport.Csharp.Test
             Assert.AreEqual(1, Heathrow.GetHangar().Count);
             Gatwick.TakeOffPlane(plane);
         }
+
+        [Test, Description("Cannot take off plane if it is already in flight")]
+        [ExpectedException(typeof(PlaneAlreadyInFlightException))]
+        public void UnableTakeOffFlyingPlane()
+        {
+            Mock<Plane> plane = new Mock<Plane>();
+            plane.Setup(x => x.GetStatus()).Returns("Flying");
+            Airport Heathrow = new Airport();
+            Heathrow.TakeOffPlane(plane.Object);
+        }
     }
 }
