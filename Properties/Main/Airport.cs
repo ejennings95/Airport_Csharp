@@ -15,5 +15,10 @@ namespace Airport.Csharp
         {
             return hangar;
         }
+
+        public void LandPlane (Plane plane)
+        {
+            hangar.Add(plane);
+        }
     }
 }
