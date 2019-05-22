@@ -30,10 +30,14 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="nunit.framework" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Main\Program.cs" />
+    <Compile Include="Properties\Main\Airport.cs" />
+    <Compile Include="Properties\Main\Plane.cs" />
+    <Compile Include="Properties\Test\AirportTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="README.md" />
