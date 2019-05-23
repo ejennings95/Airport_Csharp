@@ -3,13 +3,19 @@ namespace Airport.Csharp
 {
     public class Weather
     {
-        public string condition = "Clear"; 
+        public string condition = "Clear";
+        public int randomNumber = new Random().Next(0, 2);
 
         public Weather()
         {
         }
 
-        public string GetCondition()
+        public Weather(int number)
+        {
+            randomNumber = number;
+        }
+
+        public virtual string GetCondition()
         {
             SetCondition();
             return condition;
@@ -17,20 +23,13 @@ namespace Airport.Csharp
 
         public void SetCondition()
         {
-            if (Random() == 0)
+            if (randomNumber == 0)
             {
                 condition = "Clear";
-            }
-            else
+            } else
             {
                 condition = "Stormy";
             }
-        }
-
-        public virtual int Random()
-        {
-            var rnd = new Random().Next(0, 2);
-            return rnd;
         }
     }
 }

@@ -1,5 +1,4 @@
-﻿using Moq;
-using NUnit.Framework;
+﻿using NUnit.Framework;
 using System;
 namespace Airport.Csharp.Test
 {
@@ -15,19 +14,17 @@ namespace Airport.Csharp.Test
         [Test, Description("Weather condition is Clear is random returns 0")]
         public void ClearCondition()
         {
-            var weather = new Mock<Weather>();
-            weather.Setup(x =>  x.Random()).Returns(0);
-            weather.Object.GetCondition();
-            Assert.AreEqual("Clear", weather.Object.condition);
+            var weather = new Weather(0);
+            weather.GetCondition();
+            Assert.AreEqual("Clear", weather.condition);
         }
 
         [Test, Description("Weather condition is Stormy is random returns 1")]
         public void StormyCondition()
         {
-            var weather = new Mock<Weather>();
-            weather.Setup(x => x.Random()).Returns(1);
-            weather.Object.GetCondition();
-            Assert.AreEqual("Stormy", weather.Object.condition);
+            var weather = new Weather(1);
+            weather.GetCondition();
+            Assert.AreEqual("Stormy", weather.condition);
         }
     }
 }
