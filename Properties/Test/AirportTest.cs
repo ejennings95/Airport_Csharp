@@ -85,5 +85,22 @@ namespace Airport.Csharp.Test
             Airport Heathrow = new Airport(weather.Object);
             Heathrow.TakeOffPlane(plane.Object);
         }
+
+        [Test, Description("Cannot land plane in full airport")]
+        [ExpectedException(typeof(AirportIsFullException))]
+        public void UnableToLandInFullAirport()
+        {
+            Mock<Weather> weather = new Mock<Weather>();
+            weather.Setup(x => x.GetCondition()).Returns("Clear");
+            Mock<Plane> plane = new Mock<Plane>();
+            plane.Setup(x => x.GetStatus()).Returns("Flying");
+            Mock<Plane> plane2 = new Mock<Plane>();
+            plane2.Setup(x => x.GetStatus()).Returns("Flying");
+            Airport Heathrow = new Airport(weather.Object);
+            Heathrow.SetCapacity(1);
+            Heathrow.LandPlane(plane.Object);
+            Heathrow.LandPlane(plane2.Object);
+        }
+
     }
 }

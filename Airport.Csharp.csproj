@@ -69,6 +69,7 @@
     <Compile Include="Properties\Main\Weather.cs" />
     <Compile Include="Properties\Test\WeatherTest.cs" />
     <Compile Include="Properties\Main\BadWeatherException.cs" />
+    <Compile Include="Properties\Main\AirportIsFullException.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="README.md" />
