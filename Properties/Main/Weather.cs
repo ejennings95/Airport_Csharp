@@ -21,15 +21,9 @@ namespace Airport.Csharp
             return condition;
         }
 
-        public void SetCondition()
+        private void SetCondition()
         {
-            if (randomNumber == 0)
-            {
-                condition = "Clear";
-            } else
-            {
-                condition = "Stormy";
-            }
+           condition = randomNumber == 0 ? "Clear" : "Stormy";
         }
     }
 }
